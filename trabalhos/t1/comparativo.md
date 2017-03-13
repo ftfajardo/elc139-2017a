@@ -8,7 +8,7 @@ Nome:  Franciso Fajardo
 | Característica                                            | Computador no TOP500  | Meu computador  |
 | --------------------------------------------------------- | --------------------- | --------------- |
 | Nome/Título                                               | Titan                 |  Inspiron 14    |
-| Imagem (foto, diagrama, screenshot, etc.)                 | Substitua-me. <img src="http://www.top500.org/static//images/Top500_logo.png" width="48"> | Substitua-me. <img src="http://www.top500.org/static//images/Top500_logo.png" width="48">|
+| Imagem (foto, diagrama, screenshot, etc.)                 |<img src="https://121oies.files.wordpress.com/2014/02/02_titan3_m.jpg" width="200"> | <img src="http://www.pinoytechblog.com/wp-content/uploads/2014/05/Dell-Inspiron-14-3000-Series-Philippines.jpg?x60048" width="200">|
 | Classificação de Flynn                                    |       Mimd                |  Mimd           |
 | Memória: compartilhada, distribuída ou ambas?             |     ambas                  |  compartilhada       |
 | Número total de núcleos de processamento                  | 560,640               |  cores = 2 threads = 4               |

@@ -9,7 +9,7 @@ Nome:  Franciso Fajardo
 | --------------------------------------------------------- | --------------------- | --------------- |
 | Nome/Título                                               | Titan                 |  Inspiron 14    |
 | Imagem (foto, diagrama, screenshot, etc.)                 |<img src="https://121oies.files.wordpress.com/2014/02/02_titan3_m.jpg" width="200"> | <img src="http://www.pinoytechblog.com/wp-content/uploads/2014/05/Dell-Inspiron-14-3000-Series-Philippines.jpg?x60048" width="200">|
-| Classificação de Flynn                                    |       Mimd                |  Mimd           |
+| Classificação de Flynn                                    |       Mimd                |  SIMD          |
 | Memória: compartilhada, distribuída ou ambas?             |     ambas                  |  compartilhada       |
 | Número total de núcleos de processamento                  | 560,640               |  cores = 2 threads = 4               |
 | Fabricante e modelo do(s) processador(es)                 |    Cray Inc.,Opteron 6274 16C            | intel - i5-5200U |

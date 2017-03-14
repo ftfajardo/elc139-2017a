@@ -19,6 +19,6 @@ Nome:  Franciso Fajardo
 | Desempenho Linpack                                        |	17,590 TFlop/s         |     arquivo      |
 
 
-
+https://en.wikipedia.org/wiki/Titan_(supercomputer)
 
 

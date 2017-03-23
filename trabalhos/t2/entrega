@@ -52,3 +52,19 @@ cutada em tempo menor.
 
 
 2.0 - PARTE 2 
+
+Na parte 2 foi usado o callgrind que é uma ferramenta do valgrind, ela faz com
+que o tempo de execução do processo demore mais porém as porcentagens de uso das 
+chamadas na memória são corretas.
+O código usado foi um código que maloca 2 vetores de espaços definidos no código e
+gera seus números randomicos, então os ordena, segundo os screenshot que mostram os
+resultados em torno de 98% por cento do tempo total foi passado nessa função(a de ordenação) 
+o que é um claro indício que usar programação paralela para ordenar os vetores separadamente
+irão reduzir o tempo total de execução.
+o programa acusa também altos usos da função de ordenação quando os parametros mudam. 
+screenshots e programas adicionados no repositório.
+
+
+Referências:
+
+http://wwwcdf.pd.infn.it/valgrind/html/cl-manual.html

@@ -1,0 +1,54 @@
+Francisco Tassinari Fajardo - Programação paralela 2017-1
+
+Sumário:
+        1.0 - PARTE 1 
+        2.0 - PARTE 2
+
+              
+              
+1.0 - PARTE 1
+
+
+(a) O perfil é afetado pelas opções de configuração?
+	Sim o perfil varia de acordo com o número dos parametros passados,
+valores muitos baixos resultam em um perfil todo zerado pois é muito rapido 
+para o gprof fazer qualquer análise , em perfil maiores nota-se que a porcen
+tagem de tempo que se gasta executando uma só função permanece quase a mesma, 
+e o tempo de exec sobe em uma escala esperada visto que o número de repetições
+é o mesmo e a complexidade do algoritimo é O(n).(não ocorreu problema na memoria ram 
+pois o aumento de tempo foi esperado e não foram chamados processos diferentes).  
+
+
+
+3000000 elementos por vetor e 90 repetições
+   %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 94.32      0.90     0.90        1   896.05   896.05  dot_product
+  1.06      0.91     0.01        1    10.07    10.07  init_vectors
+  0.00      0.91     0.00        2     0.00     0.00  wtime
+
+
+30000000 elementos por vetor e 90 repetições
+   %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 92.26      8.77     8.77        1     8.77     8.77  dot_product
+  1.59      8.93     0.15        1     0.15     0.15  init_vectors
+  0.00      8.93     0.00        2     0.00     0.00  wtime
+
+300000000 elemento por vetor e 90 repetições
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 92.85     87.69    87.69        1    87.69    87.69  dot_product
+  1.76     89.35     1.66        1     1.66     1.66  init_vectors
+  0.00     89.35     0.00        2     0.00     0.00  wtime
+
+
+(b) Pelo perfil de execução, há alguma função que poderia ser 
+candidata a paralelização? Por quê?
+	Sim a função dot_product porque um core do processador passa muito 
+tempo somente nela e se usados mais cores a tendência é a operação ser exe
+cutada em tempo menor.
+ 
+
+
+2.0 - PARTE 2 

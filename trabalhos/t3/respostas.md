@@ -21,7 +21,7 @@
 		escreverem na mesma variavel ao mesmo tempo.
 	
 		pthread_mutex_lock (&mutexsum);
-    		dotdata.c += mysum;
+    	dotdata.c += mysum;
    		pthread_mutex_unlock (&mutexsum);
  
    Aglomeração:
@@ -34,7 +34,7 @@
 		
 		for (i = 0; i < nthreads; i++) {
       			pthread_create(&threads[i], &attr, dotprod_worker, (void *) i);
-    		}
+    	}
 
 		Etapa de criação das treads , mapeamento estático.
 
@@ -79,7 +79,7 @@
 	Nota-se que aconteceu um aumento do speedup de 2 para 4 threads devido a arqui-
 	tetura do computador que possui dois cores mas pode utililar 4 threads. Além 
 	disso nota-se que o speedup continua na mesma fixa para dois cores e quando passa de 
-	quatro nao faz diferença.
+	quatro não faz diferença.
 
 5.Não está correto devido ao fato que falta o lock e unlock para a variável causando assim problema nos calculos, 
 porém isso nao impede que ocorra uma saída válida.

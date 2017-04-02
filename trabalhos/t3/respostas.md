@@ -6,11 +6,11 @@
 1. Particionamento : 
 		
 		O particionamento depende do número de threads , onde o vetor
-	será dividido internamente um espaço para cada thread.
+		será dividido internamente um espaço para cada thread.
 	
-	int wsize = dotdata.wsize;
-   	int start = offset*wsize;
-   	int end = start + wsize;		
+		int wsize = dotdata.wsize;
+   		int start = offset*wsize;
+   		int end = start + wsize;		
 
 		Nota-se que o start e end são diferentes para cada thread.
 
@@ -18,11 +18,11 @@
    Comunicação:
 		
 		É quando no código occorre os locks para não deixar multiplas threads
-	escreverem na mesma variavel ao mesmo tempo.
+		escreverem na mesma variavel ao mesmo tempo.
 	
-	pthread_mutex_lock (&mutexsum);
-    dotdata.c += mysum;
-   	pthread_mutex_unlock (&mutexsum);
+		pthread_mutex_lock (&mutexsum);
+    		dotdata.c += mysum;
+   		pthread_mutex_unlock (&mutexsum);
  
    Aglomeração:
    		
@@ -32,11 +32,11 @@
 
    Mapeamento:
 		
-	for (i = 0; i < nthreads; i++) {
-      pthread_create(&threads[i], &attr, dotprod_worker, (void *) i);
-    }
+		for (i = 0; i < nthreads; i++) {
+      			pthread_create(&threads[i], &attr, dotprod_worker, (void *) i);
+    		}
 
-	Etapa de criação das treads , mapeamento estático.
+		Etapa de criação das treads , mapeamento estático.
 
 2.	
 	(a) 1 thread(s), 6932200 usec
@@ -77,9 +77,9 @@
 
 
 	Nota-se que aconteceu um aumento do speedup de 2 para 4 threads devido a arqui-
-tetura do computador que possui dois cores mas pode utililar 4 threads. Além 
-disso nota-se que o speedup continua na mesma fixa para dois cores e quando passa de 
-quatro nao faz diferença.
+	tetura do computador que possui dois cores mas pode utililar 4 threads. Além 
+	disso nota-se que o speedup continua na mesma fixa para dois cores e quando passa de 
+	quatro nao faz diferença.
 
 5.Não está correto devido ao fato que falta o lock e unlock para a variável causando assim problema nos calculos, 
 porém isso nao impede que ocorra uma saída válida.

@@ -88,7 +88,7 @@ porém isso não impede que ocorra uma saída válida.
 -----------------------OpenMP-----------------------
 
 
-1.open.c
+1.[open.c]()
 
 
 2.

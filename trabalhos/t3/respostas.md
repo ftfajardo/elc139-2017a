@@ -82,9 +82,49 @@
 	quatro não faz diferença.
 
 5.Não está correto devido ao fato que falta o lock e unlock para a variável causando assim problema nos calculos, 
-porém isso nao impede que ocorra uma saída válida.
+porém isso não impede que ocorra uma saída válida.
 
 
 -----------------------OpenMP-----------------------
 
-	
+
+1.open.c
+
+
+2.
+
+	(1 Thread)	
+	| Tamanho | Repetições | Tempo(s) | Speedup |
+	|---------|------------|----------|---------|
+	|1500000  | 1000       |   5.4    |         |
+	|1500000  | 1500       |   8.1    |         |
+    
+
+	(2 Thread)	
+	| Tamanho | Repetições | Tempo(s) | Speedup |
+	|---------|------------|----------|---------|
+	|750000   | 1000       |   2.8    |  1,92   |
+	|750000   | 1500       |   4.3    |  1,88   |
+
+
+	(4 Thread)	
+	| Tamanho | Repetições | Tempo(s) | Speedup |
+	|---------|------------|----------|---------|
+	|375000   | 1000       |   2.3    |   2,3   |
+	|375000   | 1500       |   3.4    |   2,4   |
+
+
+	(8 Thread)	
+	| Tamanho | Repetições | Tempo(s) | Speedup |
+	|---------|------------|----------|---------|
+	|187500   | 1000       |   2.2    |   2,45  |
+	|187500   | 1500       |   3.4    |   2,4   |
+
+
+	Análise: Rodando com uma thread houve uma demora, porém quando aumentado o número de threads 
+	houve respostas no mesmo tempo ou mais rápidas que usando posix(não muito mais rápidas).
+
+
+
+
+

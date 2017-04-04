@@ -59,8 +59,8 @@ int main(int argc, char **argv){
    dotdata.c = 0.0;
    dotdata.wsize = wsize;
    dotdata.repeat = repeat;
-
-
+	
+   omp_set_num_threads(nthreads);
    start_time = wtime();
    
    int i,j,k;
@@ -68,18 +68,17 @@ int main(int argc, char **argv){
    double *b = dotdata.b;     
    wsize = dotdata.wsize;
    double soma;
-   double aux = 0;
+   
 
-   #pragma omp parallel for num_threads(nthreads) reduction(+: aux) private(i,j,k,soma)
-   for (i=0; i < nthreads; i++){
+
+   #pragma omp parallel for num_threads(nthreads) shared(a,b) reduction(+:soma) private(j,k)
       for (j = 0; j < dotdata.repeat; j++) {
          soma = 0.0;
-         for (k = 0; k < wsize;k++)  
+         for (k = 0; k < wsize*nthreads;k++)  
             soma += (a[k] * b[k]);
-      }
-   	  aux += soma;    
-   }
-   dotdata.c = aux;
+      }   
+   
+   dotdata.c = soma;
 
    end_time = wtime();
 

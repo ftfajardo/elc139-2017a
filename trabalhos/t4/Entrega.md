@@ -1,7 +1,6 @@
 
 1.  O programa não faz com que as variáveis ajam independentemente em cada thread,pois o padrão do open mp é shared logo nas variáveis
-id e total seriam compartilhadas pelas threads causando assim erro , por exemplo pegava o mesmo valor para o id nas duas threads.
-
+id e total seriam compartilhadas pelas threads causando assim erro , por exemplo pegava o mesmo valor para o id nas duas threads e o total dava igual.
 2.
   #include <omp.h>
   #include <stdio.h>

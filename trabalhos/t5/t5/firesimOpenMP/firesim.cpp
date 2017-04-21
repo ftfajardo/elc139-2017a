@@ -1,4 +1,4 @@
-//
+///
 // Simula��o de inc�ndio em uma floresta.
 // Baseada no c�digo proposto por David Joiner.
 //
@@ -56,7 +56,7 @@ main(int argc, char* argv[])
    try {
      long start_time, end_time;
       //start_time = wtime();
-      Forest* forest = new Forest(forest_size);
+      Forest* forest ;//= new Forest(forest_size);
       start_time = wtime();
       Random rand;
 
@@ -68,8 +68,8 @@ main(int argc, char* argv[])
       printf("Probabilidade, Percentual Queimado\n");
 
       // para cada probabilidade, calcula o percentual de �rvores queimadasnew Forest(forest_size);
-      #pragma omp parallel  num_threads(4) firstprivate(rand,forest)
-
+      #pragma omp parallel  num_threads(4) firstprivate(rand)private(forest)
+      {
         //
         forest = new Forest(forest_size);
         #pragma omp for schedule (dynamic)
@@ -93,6 +93,7 @@ main(int argc, char* argv[])
          // mostra resultado para esta probabilidade
          printf("%lf, %lf\n", prob_spread[ip], percent_burned[ip]);
       }
+    }
       end_time = wtime();
       printf("+%ld \n", (long) (end_time -  start_time));
       fflush(stdout);

@@ -51,7 +51,7 @@ E com 4:
 Análise dos resultados:
               
        Pode-se observar que com entradas pequenas não se nota a eficiência de usar paralelismo, pois perde se tempo com criação 
-       das mesmas,a partir da entrada o speedup para 2 começa a ser notado e resulta em quase 1.5 que é bom para 2 threads,  
+       das mesmas,a partir da entrada 30 o speedup para 2 começa a ser notado e resulta em quase 1.5 que é bom para 2 threads,  
        porém quando vamos para 4 threads o ganho é bem menor resultando em um speedup de 1.53 para 4, o que pode ser explicado                     
        pelo computador testado não ter 4 cores puros,quando o tamanho da floresta começa a aumentar ai começamos a notar 
        ganhos para 4 treads em relação ao de 2 threads e do de 2 para o sequencial também,obtivemos um speedup de 1.6 para 2 ,

@@ -1,8 +1,41 @@
 Francisco Tassinari Fajardo - T6
 
---Parte 1 ----
+---Parte 1---
  
-Tentativa de executar falhou pois estava passando direto o executável e assim não dava(pendente)
+Tentativa de executar falhou pois estava passando direto o executável e assim não dava e depois fechou o servidor.
+
+---Análise---
+
+**Mapeamento**
+	
+Mapeamento é estático e pode ser visto em: 
+
+       MPI_Comm_rank(MPI_COMM_WORLD, &taskid);
+       MPI_Comm_size(MPI_COMM_WORLD, &ntasks);
+
+	
+**Particionamento:**
+
+Ocorre a divisão do vetor na parte:
+	
+       part_size = n / ntasks;  
+  
+onde n é o tamanho to vetor e ntasks é o numero de processos.
+ 
+
+**Comunicação**
+
+Ocorre entre o send dos processos filhos e o recieve do pai, depois que recebe faz-se a conta, exemplo:
+	
+       MPI_Send(&mydot, 1, MPI_DOUBLE, MASTER, msg_tag, MPI_COMM_WORLD);  
+
+       MPI_Recv(&dot, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);  
+
+**Aglomeração**
+
+É a soma das parcias como no código:  
+ 
+        mydot += dot;
 
 
 ---Parte 2---

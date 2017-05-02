@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
             MPI_Send(&msgin, 1, MPI_INT, rank+1, 0, MPI_COMM_WORLD);
             printf("ID %d envia %d \n", rank, msgin);
     }	
-	//final	
+    //final	
     else {     
         MPI_Recv(&msgin, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);       
 	printf("ID %d recebe %d\n", rank, msgin);

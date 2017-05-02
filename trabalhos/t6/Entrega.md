@@ -14,7 +14,7 @@ Mapeamento é estático e pode ser visto em:
        MPI_Comm_size(MPI_COMM_WORLD, &ntasks);
 
 	
-**Particionamento:**
+**Particionamento**
 
 Ocorre a divisão do vetor na parte:
 	

@@ -69,4 +69,10 @@ Nota-se que para n 752 por exemplo ocorre muita demora, possívelmente pois o ra
 para casos assim é necessário implementar a versão do Dijkstra que particiona a tabela de distâncias usando variáveis globais 
 que são atualizadas o que parece mais fácil de ser feito em um API tipo o openMP.
 -
--Obs final: dificuldades para obter os tempos usando openMpi e quando o programa faz alguma execução errada é necessário reiniciar o computador.  
+Update : Consegui pegar os tempos que demora para a criação dos vários processos e percebi que é um tempo muito baixo mesmo se usado vários processos como seria em uma situação de cluster, usei o seguinte código (fiz isso pois se usava somente o tempo do primeiro processo)
+      if(rank != 0){ 
+        start = MPI_Wtime(); 
+        printf("start1 = : %f\n", start); 
+      }
+ //existe tambem a variação de tempos dos procesos diferentes que ocasionam em uma demora mas isso é pequeno também. 
+  Depois disso retestei o código com o comentário feito de que se rank==0 posso criar os grafos e suas ligações só uma vez, porém é necessário uma sincronização para fazer aquele processo executar primeiro, pois dava erro nas respostas só com o código sugerido. 

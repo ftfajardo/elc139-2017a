@@ -154,11 +154,11 @@ int main(int argc, char** argv) {
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 	MPI_Comm_size(MPI_COMM_WORLD, &ntasks);
 	
-	if(rank ==0){
-	  srand((unsigned)TOTALCIDADES);
-	  zeraDistancia();
-	  criaGrafo();
-	}	
+	
+	srand((unsigned)TOTALCIDADES);
+	zeraDistancia();
+	criaGrafo();
+		
 	printf("rank = : %d\n", rank);
 	
 	MPI_Barrier(MPI_COMM_WORLD);

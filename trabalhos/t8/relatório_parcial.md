@@ -32,6 +32,7 @@
 
 O código sequencial [cracksequencial.c](cracksequencial.c). quando executado resultou em mais de 25 minutos para completar todos os cracks do [crackme.txt](crackme.txt).
 ,na avaliação final tentará se executar várias vezes, levando em conta que o tempo demora bastante mesmo.
+//colocar na mesma pasta bin do programa que faz o crack para conseguir executar.
 
 Já no código [crack.c](crack.c)., foi lido do arquivo também a matriz de caracteres porém a comunicação só ocorre com relação
 ao número de processos criados, e mostra-se a origem de cada mensagem trocada como pedido, nota-se que para versão

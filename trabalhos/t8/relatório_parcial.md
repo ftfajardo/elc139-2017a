@@ -35,5 +35,5 @@ O código sequencial [cracksequencial.c](cracksequencial.c). quando executado re
 
 Já no código [crack.c](crack.c)., foi lido do arquivo também a matriz de caracteres porém a comunicação só ocorre com relação
 ao número de processos criados, e mostra-se a origem de cada mensagem trocada como pedido, nota-se que para versão
-final do trabalho é necessário ter um controle para passar todos os cracks para um respectivo processo.
+final do trabalho é necessário ter um controle para passar todos os cracks para um respectivo processo(será passado um crack para um processo,mas tem que passar todos os cracks).
 

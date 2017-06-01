@@ -84,7 +84,7 @@ char** libera(char **mat,int lines){
 	int i;	
 	printf("liberando \n");
 	for (i=0; i<lines; i++) free (mat[i]); /* libera as linhas da matriz */
-  free (mat);   
+  	free (mat);   
 	return NULL;
 }
 //aloca matriz
@@ -180,22 +180,16 @@ int main(int argc, char **argv)
 	else if(taskid != 0)
 	{
 		dest = 0;
-  	source = 0;
+  		source = 0;
 		rc = MPI_Recv(&linhaaux, 1, MPI_INT, source, tag, MPI_COMM_WORLD, &Stat);
-    rc = MPI_Send(&linhaaux, 1, MPI_INT, dest, tag, MPI_COMM_WORLD);
+    		rc = MPI_Send(&linhaaux, 1, MPI_INT, dest, tag, MPI_COMM_WORLD);
 		//printf("%d,%d\n",linhaaux,taskid);		
 	}
 	if (taskid < ntasks && taskid > 0) {
-	  rc = MPI_Get_count(&Stat, MPI_INT, &count);
-  	printf("Processo %d: Recebeu %d int  from task %d com a tag %d \n",
-        	 taskid, count, Stat.MPI_SOURCE, Stat.MPI_TAG);
-  }
-	
-
-
-	
-	
-	
+		rc = MPI_Get_count(&Stat, MPI_INT, &count);
+  		printf("Processo %d: Recebeu %d int  from task %d com a tag %d \n",
+       		taskid, count, Stat.MPI_SOURCE, Stat.MPI_TAG);
+  	}
 	
 
 	MPI_Finalize();

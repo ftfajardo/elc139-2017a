@@ -48,7 +48,7 @@ char** preenche_matriz(char** a){
 	}
 	int i=0;int j=0;
 	do{
-	  ch = fgetc(fp);
+		ch = fgetc(fp);
 		if( feof(fp) ){
 			break ;
 		}
@@ -256,7 +256,8 @@ int main(int argc, char **argv)
 			
 			if(nproc == 0){//quando os processos chegarem em 0 mata todos com a tag
 				for(i = 1 ; i < ntasks ; i++){
-					MPI_Send(&linhaaux, 0, MPI_INT, i, STOP_TAG, MPI_COMM_WORLD);}
+					MPI_Send(&linhaaux, 0, MPI_INT, i, STOP_TAG, MPI_COMM_WORLD);
+				}
 			}
 		}
 		end_time = wtime();
@@ -306,14 +307,14 @@ int main(int argc, char **argv)
 			//fprintf(stderr,"\n");
 			//fprintf(stderr,"ACABEI %d",taskid);
 			MPI_Send(&linhaaux, 1, MPI_INT, 0, DATA_TAG, MPI_COMM_WORLD);
-    	MPI_Send(resp, COL, MPI_CHAR, 0, DATA_TAG, MPI_COMM_WORLD);
+			MPI_Send(resp, COL, MPI_CHAR, 0, DATA_TAG, MPI_COMM_WORLD);
 
 		}
 		free(resp);
 		resp = NULL;
 	}
 
-	a	=	libera(a,lines);
+	a = libera(a,lines);
 
 	MPI_Finalize();
 	return EXIT_SUCCESS;

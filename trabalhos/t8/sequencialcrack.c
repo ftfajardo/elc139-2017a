@@ -36,13 +36,13 @@ char** p_matriz(char **a){
 	if(fp == NULL) {
 		printf("Erro ao abrir arquivo\n");
 		exit(1);
-  }
+	}
 	int i=0,j=0,ch;
 	do {
 		ch = fgetc(fp);
 		if( feof(fp) ) {
     	break ;
-    }
+		}
 		//printf("%c", ch);
 		if(ch != '\n'){
 			a[i][j] = ch;
@@ -112,12 +112,12 @@ void get_popen(char comand[]){
 	status = pclose(fp);
   if (status == -1) {
   	exit(1);
-  }
+	}
 	else {
         /* Use macros described under wait() to inspect `status' in order
            to determine success/failure of command executed by popen() */
 
-  }
+	}
 	free(resp);
 	resp = NULL;
 }
@@ -145,17 +145,17 @@ char** libera(char **mat,int lines){
 //aloca a matriz
 char** malloca( int lines){
 	char **a = (char **) malloc(sizeof(char*) * lines);
-	if (a == NULL ) {
+	if (a == NULL ){
 		printf("Erro de alocacao de memoria\n");
 		exit(1);
-  }
+	}
 	int i;
 	for(i = 0 ; i < lines ; i++){
 		a[i] = (char*) malloc (sizeof(char)* COL);
-		if (a[i] == NULL ) {
+		if (a[i] == NULL ){
 			printf("Erro de alocacao de memoria\n");
 			exit(1);
-   	}
+		}
 	}
 	return a;
 }
@@ -197,5 +197,5 @@ int main(int argc, char* argv[]){
 
 
 
-return 0;
+	return 0;
 }

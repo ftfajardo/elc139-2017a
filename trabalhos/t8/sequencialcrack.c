@@ -27,7 +27,7 @@ int conta_linha(){
 	free(line);
 	fclose(stream);
 	return cont;
-	}
+}
 
 
 //preenche matriz

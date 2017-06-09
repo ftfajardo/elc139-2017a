@@ -41,7 +41,7 @@ char** p_matriz(char **a){
 	do {
 		ch = fgetc(fp);
 		if( feof(fp) ) {
-    	break ;
+			break ;
 		}
 		//printf("%c", ch);
 		if(ch != '\n'){
@@ -193,7 +193,7 @@ int main(int argc, char* argv[]){
 	end_time = wtime();
 	printf("Tempo: %ld", (long) (end_time - start_time));
 
-	a	=	libera(a,lines);
+	a = libera(a,lines);
 
 
 

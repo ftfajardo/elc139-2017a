@@ -106,12 +106,13 @@ void get_popen(char comand[]){
 	//print da senha comentado
 	fprintf(stderr,"Senha crackeada: ");
 	for( i = 0; i < COL; ++i){
-    fprintf(stderr,"%c", *(resp+i));
+    		fprintf(stderr,"%c", *(resp+i));
 	}
-  fprintf(stderr,"\n");
+  	fprintf(stderr,"\n");
+	
 	status = pclose(fp);
-  if (status == -1) {
-  	exit(1);
+  	if (status == -1) {
+  		exit(1);
 	}
 	else {
         /* Use macros described under wait() to inspect `status' in order
@@ -139,7 +140,7 @@ char** libera(char **mat,int lines){
 	int i;
 	printf("\nliberando \n");
 	for (i=0; i<lines; i++) free (mat[i]); /* libera as linhas da matriz */
-  free (mat);
+	free (mat);
 	return NULL;
 }
 //aloca a matriz

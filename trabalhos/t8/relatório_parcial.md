@@ -28,13 +28,27 @@
 
 
 
-## Análise:
+## Análise_final:
 
-O código sequencial [cracksequencial.c](cracksequencial.c). quando executado resultou em mais de 25 minutos para completar todos os cracks do [crackme.txt](crackme.txt).
-,na avaliação final tentará se executar várias vezes, levando em conta que o tempo demora bastante mesmo.
+   O código sequencial [cracksequencial.c](cracksequencial.c). quando executado resultou em mais de 25 minutos para completar todos os cracks do [crackme.txt](crackme.txt).
 //colocar na mesma pasta bin do programa que faz o crack para conseguir executar.
 
-Já no código [crack.c](crack.c)., foi lido do arquivo também a matriz de caracteres porém a comunicação só ocorre com relação
-ao número de processos criados, e mostra-se a origem de cada mensagem trocada como pedido, nota-se que para versão
-final do trabalho é necessário ter um controle para passar todos os cracks para um respectivo processo(será passado um crack para um processo,mas tem que passar todos os cracks).
+   Já no código [crack.c](crack.c), o programa em parelelo foi executado 3 vezes e ficou entre 17 e 20 minutos, sendo 17 o menor
+tempo, usando 4 processos escravos e um mestre , resultando em um speed-up no melhor caso de aproximadente 1.5, o speed-up não é 
+tao alto pelo fato de ter vários processos no crackme.txt que executam rapidamente e poucos longos(hipótese:2 hiperthreads 
+também prejudicam), se fosse somente longos veriamos claramente uma melhora mais significativa, se compararmos como foi feito o 
+particionamento dos processos onde se envia de um em um processo e não em blocos, isso pode oferecer vantagens e desvantagens, 
+se estivermos com os cracks que demoram pouco tempo por exemplo e sabe se que todos tem o mesmpo tempo parece mais simples e 
+eficaz o particionamento estático, porém quando adicionamos processos longos com essa estratégia empregada ganhamos uma 
+flexibilidade onde no caso do estático podem se acabar blocos mais cedo que outros, e se os outros forem longos estamos 
+claramente tendo uma perda no desempenho otimizado, o que se resolve no caso dinâmico, pois um processo longo não impede um mais 
+curto que vem depois de ser executado ou mesmo um longo. 
+   Observa-se que testando os dois arquivos teste.txt e rapido.txt o sequencial executa mais rápido devido ao fato de que gasta 
+se tempo com criação de processos
+e controle dos mesmos.
+
+
+obs:os valores de tempo foram adquiridos com prints iguais no código.
+
+
 

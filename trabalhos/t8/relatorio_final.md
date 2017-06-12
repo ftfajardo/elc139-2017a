@@ -41,8 +41,7 @@ se estivermos com os cracks que demoram pouco tempo por exemplo e sabe se que to
 eficaz o particionamento estático, porém quando adicionamos processos longos com essa estratégia empregada ganhamos uma 
 flexibilidade onde no caso do estático podem se acabar blocos mais cedo que outros, e se os outros forem longos estamos 
 claramente tendo uma perda no desempenho otimizado, o que se resolve no caso dinâmico, pois um processo longo não impede um mais 
-curto que vem depois de ser executado ou mesmo um longo.
-    Além disso foi percebido depois que a melhor execução pode na verdade ser com 3 processos escravos pois não precisa ocorrer tantas trocas de contexto como ocorre no com 4 escravos, foi testado e se obteve um desempenho de 15 minutos, speedup de 1,67. 
+curto que vem depois de ser executado ou mesmo um longo. 
    Observa-se que testando os dois arquivos teste.txt e rapido.txt o sequencial executa mais rápido devido ao fato de que gasta 
 se tempo com criação de processos
 e controle dos mesmos.

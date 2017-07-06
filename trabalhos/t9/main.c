@@ -26,9 +26,9 @@ int main()
 	char MAT[tam_max][tam_max];  /*Matriz onde eh armazenada as strings digitadas*/
 	long start_time, end_time; /*variavel de tempo */
 
-	printf("Digite o numero de arquivos que vc deseja ler:  <10 \n");
-  fgets (buff, tam_max, stdin);
-  numero_arqu = atoi(buff);
+	printf("Digite o numero de arquivos que vc deseja ler:   \n");
+  	fgets (buff, tam_max, stdin);
+  	numero_arqu = atoi(buff);
 
   printf("Digite o numero de strings q vc deseja ler: \n");
 	fgets (buff, tam_max, stdin);
@@ -42,25 +42,25 @@ int main()
 		}
    		/* PARTE DO CODIGO QUE PERCORRE O ARQUIVO ACHA AS STRINGS , DEPOIS INSERE NA ARVORE AVL , logica feita com fgetc e suor*/
   	do{
-    	c = fgetc(pFile);
-    	if(c != ' ' && c != '.' && c != ','  && c != ';' && c != '\t' && c != '\"' && c != ':' && c != '?' && c != '[' && c != ']' && c != '{' && c != '}' && c != '(' && c != ')' && c != '!'
+    		c = fgetc(pFile);
+    		if(c != ' ' && c != '.' && c != ','  && c != ';' && c != '\t' && c != '\"' && c != ':' && c != '?' && c != '[' && c != ']' && c != '{' && c != '}' && c != '(' && c != ')' && c != '!'
    		&& c != '?' && c != '<' && c != '>' && c != '\n' && (int)c!= -1){
    			j = 1;
    			buff[i] = c;
    			i++;
-			}
+		}
    		if((c == ' ' || c == '.' || c == ',' || c == ';'  || c == '\t' || c == '\"' || c == ':' || c == '?' || c == '[' || c == ']' || c == '{' || c == '}' || c == '(' || c == ')' || c == '!'
    		|| c == '?' || c == '<' || c == '>' || c== '\n') && j ==1 ){
-				buff[i] = '\0';
-				i = 0;
-				j = 0;
-				//tirar ->strcpy(aux,arquivos[0][cont]);
-				//printf("inserindo %s",buff);
-				//->send aux
-				root = insert(root, buff,"progpar.txt"); /*insercao do buffer na arvore e do arquivo numa lista*/
-			}
-			if(c == '\n')j = 0;
-		}while (c != EOF);
+			buff[i] = '\0';
+			i = 0;
+			j = 0;
+			//tirar ->strcpy(aux,arquivos[0][cont]);
+			//printf("inserindo %s",buff);
+			//->send aux
+			root = insert(root, buff,"progpar.txt"); /*insercao do buffer na arvore e do arquivo numa lista*/
+		}
+		if(c == '\n')j = 0;
+	}while (c != EOF);
 
    	fclose(pFile);
 		cont++;

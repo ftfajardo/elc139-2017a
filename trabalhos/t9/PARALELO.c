@@ -278,7 +278,7 @@ int main(int argc, char **argv)
 		MPI_Status status;
 		int numero_arqu = 0, numero_dados = 0,cont = 0,nproc = 0;
 		char MAT[tam_max][tam_max];  /*Matriz onde eh armazenada as strings digitadas*/
-		printf("Digite o numero de arquivos que vc deseja ler:  <10 \n");
+		printf("Digite o numero de arquivos que vc deseja ler:   \n");
   		fgets (buff, tam_max, stdin);
  		numero_arqu = atoi(buff);
 		int resto = numero_arqu - (ntasks-1);

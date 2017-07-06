@@ -375,7 +375,7 @@ int main(int argc, char **argv)
 
 	}
 	printf("liberando..");
-  libera(root);	/*liberando a arvore*/
+  	libera(root);	/*liberando a arvore*/
 
 	MPI_Finalize();
 	return EXIT_SUCCESS;

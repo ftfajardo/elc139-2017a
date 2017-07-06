@@ -289,7 +289,7 @@ int main(int argc, char **argv)
 		if(ntasks-1 > numero_arqu){
 			j = numero_arqu+1;
 			for(i = j ; i < ntasks; i++){
-				MPI_Send(&text, 0, MPI_INT, i, STOP_TAG, MPI_COMM_WORLD);
+				MPI_Send(text, tam_max, MPI_CHAR, i, STOP_TAG, MPI_COMM_WORLD);
 			}
 			ntasks = numero_arqu+1;
 		}

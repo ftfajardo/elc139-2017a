@@ -41,7 +41,7 @@ unsigned long long int height(struct Node *N)
 /*funcao para pegar maximo de 2 inteiros*/
 
  unsigned long long int max( unsigned long long int a, unsigned long long int b){
-	 return (a > b)? a : b;
+	return (a > b)? a : b;
 }
 
 /*funcao auxiliar pra alocar o novo no e os ponteiros*/
@@ -77,26 +77,28 @@ struct Node* newNode(char key[],char arquivo[])
 }
 
 void push(Lista * head, char info[]) {       /*funcao que insere no fim na lista*/
-    Lista* current = head;
-    while (current->prox != NULL) {
-        current = current->prox;
-    }
+	
+	
+	
+	Lista* current = head;
+	while (current->prox != NULL) 
+		current = current->prox;
+	}
 
-
-    current->prox = malloc(sizeof(Lista));
-    strcpy(	current->prox->info,info);
-    current->prox->prox = NULL;
+	current->prox = malloc(sizeof(Lista));		
+	strcpy(	current->prox->info,info);
+	current->prox->prox = NULL;
 }
 
 void print_list(Lista * head) {     /*funcao que imprime a lista*/
-    Lista *current = head;
+	Lista *current = head;
 
-    while (current != NULL) {
-        printf("%s-", current->info);
-        current = current->prox;
-    }
-    printf("\n");
-}
+	while (current != NULL) {
+		printf("%s-", current->info);
+        	current = current->prox;
+	}
+    	printf("\n");
+	}
 
 int compara(Lista *t, char var[] ){        /*funcao que so insere no fim da lista se vier de arquivo diferente*/
  	int cont = 0;
@@ -115,45 +117,42 @@ int compara(Lista *t, char var[] ){        /*funcao que so insere no fim da list
 /*as rotacoes necessarias da arvore*/
 struct Node *rightRotate(struct Node *y)
 {
-    struct Node *x = y->left;
-    struct Node *T2 = x->right;
+	struct Node *x = y->left;
+	struct Node *T2 = x->right;
 
-    /*aciona a rotacao*/
-    x->right = y;
-    y->left = T2;
-
-    /*atualiza alturas*/
-    y->height = max(height(y->left), height(y->right))+1;
-    x->height = max(height(x->left), height(x->right))+1;
-
-    /*Retorna nova arvore*/
-    return x;
+	/*aciona a rotacao*/
+	x->right = y;
+	y->left = T2;
+	/*atualiza alturas*/
+	y->height = max(height(y->left), height(y->right))+1;
+	x->height = max(height(x->left), height(x->right))+1;
+	/*Retorna nova arvore*/
+	return x;
 }
 
 
 struct Node *leftRotate(struct Node *x)
 {
-    struct Node *y = x->right;
-    struct Node *T2 = y->left;
+	struct Node *y = x->right;
+	struct Node *T2 = y->left;
 
-    /*Perform rotation*/
-    y->left = x;
-    x->right = T2;
+	/*Perform rotation*/
+	y->left = x;
+	x->right = T2;
 
-    /*Update heights*/
-    x->height = max(height(x->left), height(x->right))+1;
-    y->height = max(height(y->left), height(y->right))+1;
-
-    /*Return new root*/
-    return y;
+	/*Update heights*/
+	x->height = max(height(x->left), height(x->right))+1;
+	y->height = max(height(y->left), height(y->right))+1;
+	/*Return new root*/
+	return y;
 }
 
 /*pega o fator de balancemeanto*/
 unsigned long long int getBalance(struct Node *N)
 {
-    if (N == NULL)
-        return 0;
-    return height(N->left) - height(N->right);
+	if (N == NULL)	
+		return 0;
+	return height(N->left) - height(N->right);
 }
 
 /*funcao para inserir e chamar os balanceamentos caso necessario*/
@@ -266,9 +265,9 @@ int main(int argc, char **argv)
 	struct Node *root = NULL;                 /*criando a struct da arvore*/
 	FILE * pFile;                              /*ponteiro para abrir o  file*/
  	char buff[tam_max];
-  int id,i = 0,j = 0;
-  char msg[tam_max];
-  strcpy (msg,text);
+	int id,i = 0,j = 0;
+	char msg[tam_max];
+	strcpy (msg,text);
 
 	MPI_Init(&argc, &argv);
 	MPI_Comm_rank(MPI_COMM_WORLD, &taskid);
@@ -280,7 +279,7 @@ int main(int argc, char **argv)
 		int numero_arqu = 0, numero_dados = 0,cont = 0,nproc = 0;
 		char MAT[tam_max][tam_max];  /*Matriz onde eh armazenada as strings digitadas*/
 		printf("Digite o numero de arquivos que vc deseja ler:  <10 \n");
-  	fgets (buff, tam_max, stdin);
+  		fgets (buff, tam_max, stdin);
  		numero_arqu = atoi(buff);
 		int resto = numero_arqu - (ntasks-1);
 		//printf("Digite o numero de strings q vc deseja ler: \n");
@@ -338,7 +337,7 @@ int main(int argc, char **argv)
 	else {
 		MPI_Status status;
 		char msga[tam_max];
-    int c;
+    		int c;
 		while ( ((MPI_Recv(&msga, tam_max, MPI_CHAR, 0, MPI_ANY_TAG, MPI_COMM_WORLD,&status)) == MPI_SUCCESS) &&
 					(status.MPI_TAG == WORK_TAG) )//recebe a linha com a tag de trabalho
 		{
@@ -350,26 +349,26 @@ int main(int argc, char **argv)
 			}
    		/* PARTE DO CODIGO QUE PERCORRE O ARQUIVO ACHA AS STRINGS , DEPOIS INSERE NA ARVORE AVL , logica feita com fgetc e suor*/
   		do{
-    		c = fgetc(pFile);
-    		if(c != ' ' && c != '.' && c != ','  && c != ';' && c != '\t' && c != '\"' && c != ':' && c != '?' && c != '[' && c != ']' && c != '{' && c != '}' && c != '(' && c != ')' && c != '!'
+    			c = fgetc(pFile);
+    			if(c != ' ' && c != '.' && c != ','  && c != ';' && c != '\t' && c != '\"' && c != ':' && c != '?' && c != '[' && c != ']' && c != '{' && c != '}' && c != '(' && c != ')' && c != '!'
    			&& c != '?' && c != '<' && c != '>' && c != '\n' && (int)c!= -1){
    				j = 1;
    				buff[i] = c;
    				i++;
-				}
+			}
    			if((c == ' ' || c == '.' || c == ',' || c == ';'  || c == '\t' || c == '\"' || c == ':' || c == '?' || c == '[' || c == ']' || c == '{' || c == '}' || c == '(' || c == ')' || c == '!'
    			|| c == '?' || c == '<' || c == '>' || c== '\n') && j ==1 ){
-					buff[i] = '\0';
-					i = 0;
-					j = 0;
+				buff[i] = '\0';
+				i = 0;
+				j = 0;
 
-					root = insert(root, buff,msga); /*insercao do buffer na arvore e do arquivo numa lista*/
-				}
-				if(c == '\n')j = 0;
-			}while (c != EOF);
+				root = insert(root, buff,msga); /*insercao do buffer na arvore e do arquivo numa lista*/
+			}
+			if(c == '\n')j = 0;
+		}while (c != EOF);
 
 	   	fclose(pFile);
-			MPI_Send(msga, tam_max, MPI_CHAR, 0, DATA_TAG, MPI_COMM_WORLD);
+		MPI_Send(msga, tam_max, MPI_CHAR, 0, DATA_TAG, MPI_COMM_WORLD);
 
 		}
 

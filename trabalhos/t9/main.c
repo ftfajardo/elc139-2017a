@@ -30,7 +30,7 @@ int main()
   	fgets (buff, tam_max, stdin);
   	numero_arqu = atoi(buff);
 
-  printf("Digite o numero de strings q vc deseja ler: \n");
+  	printf("Digite o numero de strings q vc deseja ler: \n");
 	fgets (buff, tam_max, stdin);
 	numero_dados = atoi(buff);
 	//->arquivos[0][cont]

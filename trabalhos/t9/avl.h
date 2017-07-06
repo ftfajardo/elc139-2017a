@@ -7,7 +7,7 @@ struct Node
     char nome[tam_max];
     struct Node *left;
     struct Node *right;
-    unsigned long long int height;
+    int height;
     unsigned long long int cont;
     struct lis * a;
 };
@@ -20,10 +20,10 @@ typedef struct lis{
 
 
 /*funcao para pegar altura*/
-unsigned long long int height(struct Node *N);
+int height(struct Node *N);
 
 /*funcao para pegar maximo de 2 inteiros*/
-unsigned long long int max(unsigned long long int a,unsigned long long int b);
+int max(int a,int b);
 
 /*funcao auxiliar pra alocar o novo no e os ponteiros*/
 struct Node* newNode(char key[],char arquivo[]);
@@ -40,7 +40,7 @@ struct Node *rightRotate(struct Node *y);
 struct Node *leftRotate(struct Node *x);
 
 /*pega o fator de balancemeanto*/
-unsigned long long int getBalance(struct Node *N);
+int getBalance(struct Node *N);
 
 /*funcao para inserir e chamar os balanceamentos caso necessario*/
 struct Node* insert(struct Node* node, char key[],char arquivo[]);

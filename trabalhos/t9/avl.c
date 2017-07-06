@@ -6,7 +6,7 @@
 
 
 /*funcao para pegar altura*/
-unsigned long long int height(struct Node *N)
+int height(struct Node *N)
 {
     if (N == NULL)
         return 0;
@@ -15,7 +15,7 @@ unsigned long long int height(struct Node *N)
 
 /*funcao para pegar maximo de 2 inteiros*/
 
- unsigned long long int max( unsigned long long int a, unsigned long long int b){
+int max(  int a,  int b){
 	 return (a > b)? a : b;
 }
 
@@ -119,7 +119,7 @@ struct Node *leftRotate(struct Node *x)
 }
 
 /*pega o fator de balancemeanto*/
-unsigned long long int getBalance(struct Node *N)
+int getBalance(struct Node *N)
 {
     if (N == NULL)
         return 0;
@@ -146,7 +146,7 @@ struct Node* insert(struct Node* node, char key[],char arquivo[])
 
     node->height = 1 + max(height(node->left),
                            height(node->right));
-    unsigned long long int balance = getBalance(node);
+    int balance = getBalance(node);
 
     /*Se ficou nao balanceada chama um dos 4 casos possives, caso esteja balanceada retorna normal*/
 
